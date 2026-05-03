@@ -1,0 +1,11 @@
+# Netlify · Angular CLI application builder outputs to `<project>/browser`
+# Overrides UI “publish: dist” so @netlify/angular-runtime passes validation.
+[build]
+  command = "npm run build"
+  publish = "dist/anushka/browser"
+
+# Client-side routing: real files under publish/ still win over this fallback.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
