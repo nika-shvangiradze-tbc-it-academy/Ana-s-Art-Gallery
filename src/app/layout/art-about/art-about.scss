@@ -1,0 +1,143 @@
+:host {
+  display: block;
+}
+
+.about,
+.donate {
+  width: min(1400px, 92%);
+  margin: 0 auto;
+  padding: 4.5rem 0;
+}
+
+.about h2,
+.donate h2 {
+  margin: 0;
+  color: #2f2320;
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+}
+
+.donate p {
+  margin: 0.85rem 0 0;
+  max-width: min(36rem, 90vw);
+  margin-inline: auto;
+  color: #4f433e;
+  font-size: clamp(1.02rem, 2.3vw, 1.15rem);
+  line-height: 1.72;
+}
+
+.about__inner {
+  display: grid;
+  align-items: center;
+  gap: clamp(1.75rem, 4.5vw, 3rem);
+}
+
+.about__content h2 + p {
+  margin-top: 1rem;
+}
+
+.about p {
+  margin: 0;
+  color: #4f433e;
+  font-size: clamp(1.035rem, 2.35vw, 1.175rem);
+  line-height: 1.72;
+}
+
+.about__content > p:not(:first-of-type) {
+  margin-top: 1.05rem;
+}
+
+.about__content p.delivery-note {
+  margin-top: 1.25rem;
+}
+
+.about strong {
+  font-weight: 600;
+  color: #3a322e;
+}
+
+.about__media {
+  margin: 0;
+  border-radius: clamp(12px, 2vw, 18px);
+  overflow: hidden;
+  box-shadow:
+    0 24px 48px rgba(47, 35, 32, 0.12),
+    0 4px 12px rgba(47, 35, 32, 0.06);
+}
+
+.about__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about__inner {
+    grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.56fr);
+    gap: clamp(1.35rem, 3.2vw, 2rem);
+  }
+
+  .about__media {
+    justify-self: end;
+    width: 100%;
+    max-width: min(288px, 30vw);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about__inner {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.68fr);
+    gap: clamp(2rem, 5vw, 3.75rem);
+  }
+
+  .about__media {
+    justify-self: end;
+    width: 100%;
+    max-width: clamp(260px, 31vw, 360px);
+  }
+}
+
+.delivery-note {
+  font-weight: 600;
+  color: #613f2e;
+}
+
+.donate {
+  text-align: center;
+  padding-top: 2.5rem;
+  scroll-margin-top: 5.5rem;
+}
+
+.donate-button {
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+  background: linear-gradient(135deg, #ffcdc3, #ffd99a);
+  color: #3a2219;
+  font-weight: 700;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 20px rgba(209, 131, 112, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.donate-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 22px rgba(209, 131, 112, 0.28);
+}
+
+@media (max-width: 767px) {
+  .about__media {
+    max-width: min(336px, 88vw);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .about,
+  .donate {
+    padding: 3.2rem 0;
+  }
+}

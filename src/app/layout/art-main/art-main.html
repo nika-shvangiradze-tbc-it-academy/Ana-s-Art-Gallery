@@ -1,0 +1,85 @@
+<main>
+  <section id="home" class="hero" aria-label="Hero section">
+    <header class="hero__nav">
+      <a class="hero__brand" href="#home" (click)="closeNav()">anart</a>
+      <button
+        type="button"
+        class="hero__burger"
+        aria-label="Toggle menu"
+        aria-controls="primary-menu"
+        [attr.aria-expanded]="navOpen()"
+        (click)="toggleNav()"
+        [class.hero__burger--open]="navOpen()"
+      >
+        <span class="hero__burger-line" aria-hidden="true"></span>
+        <span class="hero__burger-line" aria-hidden="true"></span>
+        <span class="hero__burger-line" aria-hidden="true"></span>
+      </button>
+
+      <div
+        class="hero__drawer-backdrop"
+        [class.hero__drawer-backdrop--visible]="navOpen()"
+        (click)="closeNav()"
+        aria-hidden="true"
+      ></div>
+
+      <nav
+        id="primary-menu"
+        class="hero__links"
+        [class.hero__links--drawer-open]="navOpen()"
+        aria-label="Primary navigation"
+      >
+        <div class="hero__drawer-head">
+          <a class="hero__drawer-brand" href="#home" (click)="closeNav()">anart</a>
+          <button
+            type="button"
+            class="hero__drawer-close"
+            aria-label="Close menu"
+            (click)="closeNav()"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <a href="#home" (click)="closeNav()">home</a>
+        <a href="#about" (click)="closeNav()">about</a>
+        <a href="#gallery" (click)="closeNav()">gallery</a>
+        <a href="#faq" (click)="closeNav()">faq</a>
+        <a href="#contact" (click)="openHeroContact($event)">contact</a>
+      </nav>
+    </header>
+
+    <div class="hero__carousel" aria-hidden="true">
+      @for (slide of heroSlides; track slide; let idx = $index) {
+        <div
+          class="hero__slide"
+          [class.hero__slide--active]="idx === currentSlide()"
+        >
+          <app-reveal-image
+            [src]="slide"
+            [webpSrc]="heroLandingWebp(slide)"
+            [alt]="'Hero showcase ' + (idx + 1) + ': abstract painting banner for Anart gallery'"
+            [width]="heroImgDims.w"
+            [height]="heroImgDims.h"
+            [sizes]="heroImgSizes"
+            [loading]="idx === 0 ? 'eager' : 'lazy'"
+            [fetchPriority]="idx === 0 ? 'high' : 'low'"
+            fit="cover"
+          />
+        </div>
+      }
+    </div>
+
+    <div class="hero__overlay">
+      <h1>Anart Gallery</h1>
+      <p>Original artworks by Ana Kajaia</p>
+      <a href="#gallery" class="cta-button">View Artworks</a>
+    </div>
+  </section>
+
+  <app-artworks />
+  <app-dolls />
+  <app-about />
+  <app-faq />
+</main>
+
+<app-art-footer></app-art-footer>

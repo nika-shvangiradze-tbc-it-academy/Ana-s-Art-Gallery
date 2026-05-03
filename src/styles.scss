@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+@keyframes sectionElevate {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-elevate {
+  animation: sectionElevate 0.78s cubic-bezier(0.33, 1, 0.68, 1) backwards;
+}
+
+.section-elevate--delay1 {
+  animation-delay: 0.08s;
+}
+
+.section-elevate--delay2 {
+  animation-delay: 0.14s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-elevate,
+  .section-elevate--delay1,
+  .section-elevate--delay2 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  font-family:
+    'Open Sans',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:
+    'Cormorant Garamond',
+    'Times New Roman',
+    Times,
+    serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}

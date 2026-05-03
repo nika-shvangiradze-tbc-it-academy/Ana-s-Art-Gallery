@@ -1,0 +1,108 @@
+<section id="gallery" class="artworks section-elevate" aria-labelledby="artworks-title">
+  <div class="section-header">
+    <h2 id="artworks-title">Artworks</h2>
+    <p>Original paintings made with creativity, emotion, and imagination.</p>
+  </div>
+
+  <div class="art-gallery">
+    <div class="art-grid">
+      @for (item of galleryVisible(); track item.key) {
+        <article class="art-card">
+          <button
+            type="button"
+            class="art-card__thumb"
+            (click)="openLightbox(item.index)"
+            [attr.aria-label]="'View enlarged: ' + item.artwork.title"
+          >
+            <app-reveal-image
+              [src]="item.artwork.image"
+              [webpSrc]="thumbWebp(item.artwork.image)"
+              [alt]="item.artwork.title + ' — original artwork by Ana Kajaia'"
+              [width]="galleryThumbDims.w"
+              [height]="galleryThumbDims.h"
+              [sizes]="galleryImgSizes"
+              loading="lazy"
+              fetchPriority="low"
+              fit="cover"
+            />
+          </button>
+          <div class="art-card__content">
+            <h3>{{ item.artwork.title }}</h3>
+            <p><strong>Size:</strong> {{ item.artwork.size }}</p>
+            <p><strong>Price:</strong> {{ item.artwork.price }}</p>
+            <p class="artist-comment">{{ item.artwork.comment }}</p>
+            <button type="button" class="contact-button" (click)="openContactModal()">
+              Buy / Contact
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+
+    @if (galleryPagerVisible()) {
+      <nav class="art-gallery__pager" aria-label="Gallery pages">
+        <button
+          type="button"
+          class="art-gallery__pager-btn art-gallery__pager-btn--prev"
+          aria-label="Previous page of artworks"
+          [disabled]="galleryPage() === 0"
+          (click)="galleryPagerPrev()"
+        ></button>
+        <span class="art-gallery__pager-info" aria-live="polite">
+          {{ galleryPage() + 1 }} / {{ galleryPageCount() }}
+        </span>
+        <button
+          type="button"
+          class="art-gallery__pager-btn art-gallery__pager-btn--next"
+          aria-label="Next page of artworks"
+          [disabled]="galleryPage() >= galleryPageCount() - 1"
+          (click)="galleryPagerNext()"
+        ></button>
+      </nav>
+    }
+  </div>
+</section>
+
+@if (lightboxArtwork(); as art) {
+  <div
+    class="lightbox"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="'Enlarged: ' + art.title"
+    (click)="closeLightbox()"
+  >
+    <div class="lightbox__content" (click)="$event.stopPropagation()" role="document">
+      <button type="button" class="lightbox__close" (click)="closeLightbox()" aria-label="Close">×</button>
+      @if (artworks.length > 1) {
+        <button
+          type="button"
+          class="lightbox__nav lightbox__nav--prev"
+          aria-label="Previous artwork"
+          (click)="lightboxPrev()"
+        ></button>
+        <button
+          type="button"
+          class="lightbox__nav lightbox__nav--next"
+          aria-label="Next artwork"
+          (click)="lightboxNext()"
+        ></button>
+      }
+      <figure class="lightbox__figure">
+        <div class="lightbox__media">
+          <app-reveal-image
+            [src]="art.image"
+            [webpSrc]="displayWebp(art.image)"
+            [alt]="art.title + ' — full view for Anart gallery'"
+            [width]="lightboxImgDims.w"
+            [height]="lightboxImgDims.h"
+            sizes="min(96vw, 1100px)"
+            loading="eager"
+            fetchPriority="high"
+            fit="contain"
+          />
+        </div>
+        <figcaption class="lightbox__caption">{{ art.title }} · {{ art.size }}</figcaption>
+      </figure>
+    </div>
+  </div>
+}

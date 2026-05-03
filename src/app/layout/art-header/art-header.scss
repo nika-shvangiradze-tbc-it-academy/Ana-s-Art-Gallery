@@ -1,0 +1,58 @@
+:host {
+  display: block;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem min(4vw, 2.25rem);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid #f0e4dd;
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  text-decoration: none;
+  color: #2f2320;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+nav a {
+  text-decoration: none;
+  color: #5e4a42;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 0.2rem 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  background: #fcefe8;
+  color: #34231d;
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

@@ -4,8 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "serve:prod": "ng serve --configuration production",
     "build": "ng build",
+    "build:optimized": "node scripts/optimize-images.mjs && ng build --configuration production",
     "watch": "ng build --watch --configuration development",
+    "optimize-images": "node scripts/optimize-images.mjs",
     "test": "ng test"
   },
   "private": true,
@@ -26,6 +29,7 @@
     "@angular/compiler-cli": "^21.2.0",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
+    "sharp": "^0.34.3",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
   }

@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ — Anart Gallery | Ana Kajaia</title>
+  <meta name="description" content="Frequently asked questions about custom artworks, handmade dolls, materials, delivery, and ordering original art by Ana Kajaia.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #ffffff;
+      color: #2f2320;
+      line-height: 1.55;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', Times, serif;
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    /* —— Header —— */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem min(4vw, 2.25rem);
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid #f0e4dd;
+      backdrop-filter: blur(8px);
+    }
+    .brand {
+      text-decoration: none;
+      color: #2f2320;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+    }
+    .brand:hover { color: #34231d; }
+    .header-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 0.9rem;
+      justify-content: flex-end;
+    }
+    .header-nav a {
+      text-decoration: none;
+      color: #5e4a42;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      border-radius: 8px;
+      padding: 0.25rem 0.5rem;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .header-nav a:hover {
+      background: #fcefe8;
+      color: #34231d;
+    }
+    .header-nav a[aria-current="page"] {
+      color: #2f2320;
+      background: #fcefe8;
+    }
+
+    /* —— Main —— */
+    .faq-page {
+      padding: clamp(2rem, 5vw, 3.25rem) min(5vw, 1.75rem) 3.5rem;
+    }
+    .faq-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .faq-intro {
+      text-align: center;
+      margin-bottom: clamp(2rem, 4vw, 2.75rem);
+    }
+    .faq-intro h1 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.85rem, 4.8vw, 2.65rem);
+      font-weight: 700;
+      color: #2f2320;
+      letter-spacing: -0.02em;
+    }
+    .faq-intro p {
+      margin: 0 auto;
+      max-width: 560px;
+      color: #654f46;
+      font-size: clamp(1rem, 2.4vw, 1.125rem);
+    }
+
+    /* —— Accordion cards —— */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .faq-item {
+      background: rgba(255, 247, 244, 0.85);
+      border: 1px solid #f0e4dd;
+      border-radius: 16px;
+      box-shadow: 0 6px 24px rgba(46, 32, 20, 0.06);
+      overflow: hidden;
+      transition: box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+    .faq-item.is-open {
+      border-color: #e8d5cd;
+      box-shadow: 0 10px 32px rgba(46, 32, 20, 0.1);
+    }
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-align: left;
+      padding: 1.1rem 1.15rem 1.1rem 1.25rem;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: #2f2320;
+      font-family: inherit;
+      font-size: clamp(0.975rem, 2.3vw, 1.065rem);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .faq-q:focus-visible {
+      outline: 2px solid rgba(113, 224, 69, 0.55);
+      outline-offset: -2px;
+    }
+    .faq-q-text {
+      flex: 1;
+      min-width: 0;
+    }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(245, 206, 195, 0.55);
+      position: relative;
+      transition: background-color 0.28s ease, transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-icon::before,
+    .faq-icon::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: #2f2320;
+      border-radius: 1px;
+      transform: translate(-50%, -50%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-icon::before {
+      width: 11px;
+      height: 2px;
+    }
+    .faq-icon::after {
+      width: 2px;
+      height: 11px;
+    }
+    .faq-item.is-open .faq-icon {
+      background: #f5cec3;
+      transform: rotate(0deg);
+    }
+    .faq-item.is-open .faq-icon::after {
+      transform: translate(-50%, -50%) scaleY(0);
+    }
+
+    /* Smooth panel — grid 0fr / 1fr */
+    .faq-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-item.is-open .faq-panel {
+      grid-template-rows: 1fr;
+    }
+    .faq-panel-inner {
+      min-height: 0;
+      overflow: hidden;
+    }
+    .faq-a {
+      padding: 0 1.25rem 1.2rem;
+      margin: 0;
+      color: #5e4a42;
+      font-size: 0.975rem;
+      line-height: 1.62;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition:
+        opacity 0.38s cubic-bezier(0.4, 0, 0.2, 1) 0.04s,
+        transform 0.38s cubic-bezier(0.4, 0, 0.2, 1) 0.04s;
+    }
+    .faq-item.is-open .faq-a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .faq-panel,
+      .faq-item.is-open .faq-a,
+      .faq-a {
+        transition: none;
+      }
+      .faq-item.is-open .faq-a {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* —— Footer —— */
+    .site-footer {
+      margin-top: 0;
+      background: #2d221f;
+      color: #f6ece8;
+      padding: clamp(2.25rem, 5vw, 3.25rem) min(6vw, 1.5rem) clamp(2.5rem, 5vw, 3.5rem);
+      text-align: center;
+    }
+    .site-footer__inner {
+      max-width: 32rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(1rem, 3vw, 1.35rem);
+    }
+    .site-footer__title {
+      margin: 0;
+      font-size: clamp(1.5rem, 3.8vw, 1.85rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #fcf7f4;
+      font-family: 'Cormorant Garamond', 'Times New Roman', Times, serif;
+    }
+    .site-footer__lede {
+      margin: 0;
+      max-width: 26rem;
+      color: #d9c2b9;
+      font-size: clamp(0.94rem, 2.2vw, 1rem);
+      line-height: 1.6;
+      font-family: 'Open Sans', system-ui, sans-serif;
+    }
+    .site-footer__contacts {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+      width: 100%;
+    }
+    .site-footer__phone {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 206, 195, 0.22);
+      background: rgba(255, 247, 244, 0.06);
+      color: #fcf7f4;
+      font-size: clamp(1rem, 2.4vw, 1.08rem);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+      font-family: 'Open Sans', system-ui, sans-serif;
+    }
+    .site-footer__phone:hover {
+      background: rgba(252, 239, 232, 0.1);
+      border-color: rgba(245, 206, 195, 0.38);
+      color: #ffffff;
+    }
+    .site-footer__icon {
+      flex-shrink: 0;
+      color: #f5cec3;
+      opacity: 0.95;
+    }
+    .site-footer__email {
+      color: #f5cec3;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.975rem;
+      border-radius: 4px;
+      padding: 0.15rem 0.35rem;
+      margin: -0.15rem -0.35rem;
+      transition: color 0.22s ease;
+      font-family: 'Open Sans', system-ui, sans-serif;
+    }
+    .site-footer__email:hover {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+    .site-footer__nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-family: 'Open Sans', system-ui, sans-serif;
+    }
+    .site-footer__nav a {
+      color: #d9c2b9;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-radius: 4px;
+      padding: 0.2rem 0.45rem;
+      transition: color 0.22s ease;
+    }
+    .site-footer__nav a:hover {
+      color: #fcf7f4;
+    }
+    .site-footer__donate {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.25rem;
+      padding: 0.7rem 1.85rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: #36221c;
+      background: linear-gradient(145deg, rgba(232, 196, 186, 0.95), rgba(245, 214, 200, 0.88));
+      border: 1px solid rgba(255, 244, 240, 0.35);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      transition: transform 0.28s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.28s ease, filter 0.28s ease;
+      font-family: 'Open Sans', system-ui, sans-serif;
+    }
+    .site-footer__donate:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+      filter: brightness(1.03);
+    }
+    .site-footer__copyright {
+      margin: 1rem 0 0;
+      padding-top: clamp(1rem, 3vw, 1.35rem);
+      border-top: 1px solid rgba(245, 206, 195, 0.12);
+      width: 100%;
+      max-width: 26rem;
+      color: #b9a199;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      font-family: 'Open Sans', system-ui, sans-serif;
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="/">Ana's Art Gallery</a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/#gallery">Gallery</a>
+      <a href="/#about">About</a>
+      <a href="/faq.html" aria-current="page">FAQ</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="faq-page" id="main">
+    <div class="faq-wrap">
+      <header class="faq-intro">
+        <h1>Frequently asked questions</h1>
+        <p>
+          Answers about custom pieces, dolls, materials, delivery, and how to collect
+          original work by Georgian artist Ana Kajaia — in the spirit of Anart Gallery.
+        </p>
+      </header>
+
+      <div class="faq-list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-1" id="faq-btn-1">
+            <span class="faq-q-text">Can I order a custom artwork based on my own imagination?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-panel-1" class="faq-panel" role="region" aria-labelledby="faq-btn-1">
+            <div class="faq-panel-inner">
+              <p class="faq-a">
+                Yes. Custom artworks can be created based on the customer’s idea, mood, story, or imagination.
+                You can share your vision, and the artwork can be designed in Ana’s artistic style.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-2" id="faq-btn-2">
+            <span class="faq-q-text">How long does it take to create a custom artwork?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-panel-2" class="faq-panel" role="region" aria-labelledby="faq-btn-2">
+            <div class="faq-panel-inner">
+              <p class="faq-a">
+                The creation time depends on the size, detail, and complexity of the artwork.
+                Usually, a custom piece may take several days to a few weeks.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-3" id="faq-btn-3">
+            <span class="faq-q-text">What materials are used to create the artworks?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-panel-3" class="faq-panel" role="region" aria-labelledby="faq-btn-3">
+            <div class="faq-panel-inner">
+              <p class="faq-a">
+                Ana works with drawing and painting materials such as pencils, colored pencils, watercolor,
+                acrylics, markers, and mixed media, depending on the artwork style.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-4" id="faq-btn-4">
+            <span class="faq-q-text">Can handmade dolls be ordered in a custom style?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-panel-4" class="faq-panel" role="region" aria-labelledby="faq-btn-4">
+            <div class="faq-panel-inner">
+              <p class="faq-a">
+                Yes. Handmade dolls can be created with different clothing styles, inspired by Georgian traditions
+                or designed according to the customer’s personal wishes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-5" id="faq-btn-5">
+            <span class="faq-q-text">Is delivery available?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-panel-5" class="faq-panel" role="region" aria-labelledby="faq-btn-5">
+            <div class="faq-panel-inner">
+              <p class="faq-a">
+                Yes. Delivery is available across Georgia. Delivery details, timing, and cost can be discussed before ordering.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-6" id="faq-btn-6">
+            <span class="faq-q-text">How can I buy an artwork?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-panel-6" class="faq-panel" role="region" aria-labelledby="faq-btn-6">
+            <div class="faq-panel-inner">
+              <p class="faq-a">
+                You can choose an available artwork from the gallery and contact us through the phone number or email
+                provided on the website.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-7" id="faq-btn-7">
+            <span class="faq-q-text">Can I request Georgian traditional style artwork?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-panel-7" class="faq-panel" role="region" aria-labelledby="faq-btn-7">
+            <div class="faq-panel-inner">
+              <p class="faq-a">
+                Yes. Artworks and handmade dolls can be inspired by Georgian culture, traditional clothing,
+                colors, and visual details.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-8" id="faq-btn-8">
+            <span class="faq-q-text">Are all artworks original?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-panel-8" class="faq-panel" role="region" aria-labelledby="faq-btn-8">
+            <div class="faq-panel-inner">
+              <p class="faq-a">
+                Yes. Each artwork is original and created with Ana’s personal artistic vision.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="site-footer__inner">
+      <h2 class="site-footer__title">Contact</h2>
+      <p class="site-footer__lede">
+        Questions, commissions, or purchases — reach out and we’ll reply as soon as we can.
+      </p>
+      <div class="site-footer__contacts">
+        <a href="tel:+995555123456" class="site-footer__phone">
+          <svg class="site-footer__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          <span>+995&nbsp;555&nbsp;123&nbsp;456</span>
+        </a>
+        <a href="mailto:contact@anartgallery.ge" class="site-footer__email">contact&#64;anartgallery.ge</a>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer links">
+        <a href="/">Home</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <a href="/#donate" class="site-footer__donate">Donate me ♥</a>
+      <p class="site-footer__copyright">© 2026 Ana's Art Gallery. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.faq-item');
+
+      items.forEach(function (item) {
+        var btn = item.querySelector('.faq-q');
+        if (!btn) return;
+
+        btn.addEventListener('click', function () {
+          var wasOpen = item.classList.contains('is-open');
+
+          items.forEach(function (other) {
+            other.classList.remove('is-open');
+            var b = other.querySelector('.faq-q');
+            if (b) b.setAttribute('aria-expanded', 'false');
+          });
+
+          if (!wasOpen) {
+            item.classList.add('is-open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

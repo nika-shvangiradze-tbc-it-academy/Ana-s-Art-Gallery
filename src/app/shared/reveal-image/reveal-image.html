@@ -1,0 +1,22 @@
+<div class="reveal-image__frame" aria-hidden="true"></div>
+
+<picture class="reveal-image__picture">
+  @if (pictureWebp(); as wp) {
+    <source type="image/webp" [attr.srcset]="wp" />
+  }
+  <img
+    #imgEl
+    class="reveal-image__img"
+    [src]="src()"
+    [attr.alt]="alt()"
+    [attr.width]="width()"
+    [attr.height]="height()"
+    [attr.sizes]="sizes() || null"
+    [attr.loading]="loading()"
+    [attr.fetchpriority]="fetchPriority() !== 'auto' ? fetchPriority() : null"
+    decoding="async"
+    (load)="onImgLoad()"
+    (error)="onImgError()"
+    [style.object-fit]="fit()"
+  />
+</picture>

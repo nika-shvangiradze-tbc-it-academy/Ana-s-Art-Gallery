@@ -1,0 +1,16 @@
+.app-shell {
+
+  opacity: 0;
+  transition:
+    opacity 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.app-shell--visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell {
+    transition: none;
+  }
+}
