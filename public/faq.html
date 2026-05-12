@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ka">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,6 +75,36 @@
     .header-nav a[aria-current="page"] {
       color: #2f2320;
       background: #fcefe8;
+    }
+
+    .header-lang {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .header-lang button {
+      min-width: 2.45rem;
+      padding: 0.32rem 0.42rem;
+      border-radius: 8px;
+      border: 1px solid #e8d5cd;
+      background: rgba(255, 247, 244, 0.95);
+      color: #5e4a42;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    .header-lang button:hover {
+      background: #fcefe8;
+      border-color: #dcc9c0;
+    }
+    .header-lang button.is-active {
+      background: #fcefe8;
+      border-color: #c9a99a;
+      color: #2f2320;
     }
 
     /* —— Main —— */
@@ -377,197 +407,172 @@
 <body>
 
   <header class="site-header">
-    <a class="brand" href="/">Ana's Art Gallery</a>
+    <a class="brand" href="/" data-i18n="brand.headerGallery">Ana's Art Gallery</a>
     <nav class="header-nav" aria-label="Main navigation">
-      <a href="/">Home</a>
-      <a href="/#gallery">Gallery</a>
-      <a href="/#about">About</a>
-      <a href="/faq.html" aria-current="page">FAQ</a>
-      <a href="/#contact">Contact</a>
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/#gallery" data-i18n="nav.gallery">Gallery</a>
+      <a href="/#about" data-i18n="nav.about">About</a>
+      <a href="/faq.html" aria-current="page" data-i18n="nav.faq">FAQ</a>
+      <a href="/#contact" data-i18n="nav.contact">Contact</a>
     </nav>
+    <div class="header-lang" role="group" aria-label="Language">
+      <button type="button" data-lang="ka" data-i18n="lang.geo">GEO</button>
+      <button type="button" data-lang="en" data-i18n="lang.eng">ENG</button>
+      <button type="button" data-lang="ru" data-i18n="lang.rus">RUS</button>
+    </div>
   </header>
 
   <main class="faq-page" id="main">
     <div class="faq-wrap">
       <header class="faq-intro">
-        <h1>Frequently asked questions</h1>
-        <p>
+        <h1 data-i18n="faq.title">Frequently asked questions</h1>
+        <p data-i18n="faq.intro">
           Answers about custom pieces, dolls, materials, delivery, and how to collect
           original work by Georgian artist Ana Kajaia — in the spirit of Anart Gallery.
         </p>
       </header>
 
-      <div class="faq-list" role="list">
-
-        <div class="faq-item" role="listitem">
-          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-1" id="faq-btn-1">
-            <span class="faq-q-text">Can I order a custom artwork based on my own imagination?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
-          <div id="faq-panel-1" class="faq-panel" role="region" aria-labelledby="faq-btn-1">
-            <div class="faq-panel-inner">
-              <p class="faq-a">
-                Yes. Custom artworks can be created based on the customer’s idea, mood, story, or imagination.
-                You can share your vision, and the artwork can be designed in Ana’s artistic style.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" role="listitem">
-          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-2" id="faq-btn-2">
-            <span class="faq-q-text">How long does it take to create a custom artwork?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
-          <div id="faq-panel-2" class="faq-panel" role="region" aria-labelledby="faq-btn-2">
-            <div class="faq-panel-inner">
-              <p class="faq-a">
-                The creation time depends on the size, detail, and complexity of the artwork.
-                Usually, a custom piece may take several days to a few weeks.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" role="listitem">
-          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-3" id="faq-btn-3">
-            <span class="faq-q-text">What materials are used to create the artworks?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
-          <div id="faq-panel-3" class="faq-panel" role="region" aria-labelledby="faq-btn-3">
-            <div class="faq-panel-inner">
-              <p class="faq-a">
-                Ana works with drawing and painting materials such as pencils, colored pencils, watercolor,
-                acrylics, markers, and mixed media, depending on the artwork style.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" role="listitem">
-          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-4" id="faq-btn-4">
-            <span class="faq-q-text">Can handmade dolls be ordered in a custom style?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
-          <div id="faq-panel-4" class="faq-panel" role="region" aria-labelledby="faq-btn-4">
-            <div class="faq-panel-inner">
-              <p class="faq-a">
-                Yes. Handmade dolls can be created with different clothing styles, inspired by Georgian traditions
-                or designed according to the customer’s personal wishes.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" role="listitem">
-          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-5" id="faq-btn-5">
-            <span class="faq-q-text">Is delivery available?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
-          <div id="faq-panel-5" class="faq-panel" role="region" aria-labelledby="faq-btn-5">
-            <div class="faq-panel-inner">
-              <p class="faq-a">
-                Yes. Delivery is available across Georgia. Delivery details, timing, and cost can be discussed before ordering.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" role="listitem">
-          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-6" id="faq-btn-6">
-            <span class="faq-q-text">How can I buy an artwork?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
-          <div id="faq-panel-6" class="faq-panel" role="region" aria-labelledby="faq-btn-6">
-            <div class="faq-panel-inner">
-              <p class="faq-a">
-                You can choose an available artwork from the gallery and contact us through the phone number or email
-                provided on the website.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" role="listitem">
-          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-7" id="faq-btn-7">
-            <span class="faq-q-text">Can I request Georgian traditional style artwork?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
-          <div id="faq-panel-7" class="faq-panel" role="region" aria-labelledby="faq-btn-7">
-            <div class="faq-panel-inner">
-              <p class="faq-a">
-                Yes. Artworks and handmade dolls can be inspired by Georgian culture, traditional clothing,
-                colors, and visual details.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item" role="listitem">
-          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-8" id="faq-btn-8">
-            <span class="faq-q-text">Are all artworks original?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
-          <div id="faq-panel-8" class="faq-panel" role="region" aria-labelledby="faq-btn-8">
-            <div class="faq-panel-inner">
-              <p class="faq-a">
-                Yes. Each artwork is original and created with Ana’s personal artistic vision.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div class="faq-list" role="list" id="faq-list-root"></div>
     </div>
   </main>
 
   <footer id="contact" class="site-footer">
     <div class="site-footer__inner">
-      <h2 class="site-footer__title">Contact</h2>
-      <p class="site-footer__lede">
+      <h2 class="site-footer__title" data-i18n="footer.title">Contact</h2>
+      <p class="site-footer__lede" data-i18n="footer.lede">
         Questions, commissions, or purchases — reach out and we’ll reply as soon as we can.
       </p>
       <div class="site-footer__contacts">
-        <a href="tel:+995555123456" class="site-footer__phone">
+        <a href="tel:+995574067141" class="site-footer__phone">
           <svg class="site-footer__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
-          <span>+995&nbsp;555&nbsp;123&nbsp;456</span>
+          <span>+995&nbsp;574&nbsp;06&nbsp;71&nbsp;41</span>
         </a>
-        <a href="mailto:contact@anartgallery.ge" class="site-footer__email">contact&#64;anartgallery.ge</a>
+        <a href="mailto:tamarkajaia308@gmail.com" class="site-footer__email">tamarkajaia308&#64;gmail.com</a>
       </div>
       <nav class="site-footer__nav" aria-label="Footer links">
-        <a href="/">Home</a>
-        <a href="/#contact">Contact</a>
+        <a href="/" data-i18n="nav.home">Home</a>
+        <a href="/#contact" data-i18n="nav.contact">Contact</a>
       </nav>
-      <a href="/#donate" class="site-footer__donate">Donate me ♥</a>
-      <p class="site-footer__copyright">© 2026 Ana's Art Gallery. All rights reserved.</p>
+      <a href="/#donate" class="site-footer__donate" data-i18n="footer.donate">Donate me ♥</a>
+      <p class="site-footer__copyright" data-i18n="footer.copyright">© 2026 Ana's Art Gallery. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
     (function () {
-      var items = document.querySelectorAll('.faq-item');
+      var STORAGE_KEY = 'anart-lang';
+      var FAQ_IDS = ['faq-1', 'faq-2', 'faq-3', 'faq-4', 'faq-5', 'faq-6', 'faq-7', 'faq-8'];
 
-      items.forEach(function (item) {
-        var btn = item.querySelector('.faq-q');
-        if (!btn) return;
+      function getPath(obj, path) {
+        return path.split('.').reduce(function (acc, key) {
+          return acc && acc[key] !== undefined ? acc[key] : undefined;
+        }, obj);
+      }
 
-        btn.addEventListener('click', function () {
-          var wasOpen = item.classList.contains('is-open');
-
-          items.forEach(function (other) {
-            other.classList.remove('is-open');
-            var b = other.querySelector('.faq-q');
-            if (b) b.setAttribute('aria-expanded', 'false');
-          });
-
-          if (!wasOpen) {
-            item.classList.add('is-open');
-            btn.setAttribute('aria-expanded', 'true');
-          }
+      function applyI18n(t) {
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          var val = getPath(t, key);
+          if (typeof val === 'string') el.textContent = val;
         });
-      });
+      }
+
+      function buildFaqList(t) {
+        var root = document.getElementById('faq-list-root');
+        if (!root || !t.faq || !t.faq.items) return;
+        root.innerHTML = '';
+        FAQ_IDS.forEach(function (fid, idx) {
+          var item = t.faq.items[fid];
+          if (!item) return;
+          var n = idx + 1;
+          var wrap = document.createElement('div');
+          wrap.className = 'faq-item';
+          wrap.setAttribute('role', 'listitem');
+          wrap.innerHTML =
+            '<button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-' + n + '" id="faq-btn-' + n + '">' +
+            '<span class="faq-q-text"></span><span class="faq-icon" aria-hidden="true"></span></button>' +
+            '<div id="faq-panel-' + n + '" class="faq-panel" role="region" aria-labelledby="faq-btn-' + n + '">' +
+            '<div class="faq-panel-inner"><p class="faq-a"></p></div></div>';
+          wrap.querySelector('.faq-q-text').textContent = item.question;
+          wrap.querySelector('.faq-a').textContent = item.answer;
+          root.appendChild(wrap);
+        });
+      }
+
+      function wireAccordion() {
+        var items = document.querySelectorAll('.faq-item');
+        items.forEach(function (item) {
+          var btn = item.querySelector('.faq-q');
+          if (!btn) return;
+          btn.addEventListener('click', function () {
+            var wasOpen = item.classList.contains('is-open');
+            items.forEach(function (other) {
+              other.classList.remove('is-open');
+              var b = other.querySelector('.faq-q');
+              if (b) b.setAttribute('aria-expanded', 'false');
+            });
+            if (!wasOpen) {
+              item.classList.add('is-open');
+              btn.setAttribute('aria-expanded', 'true');
+            }
+          });
+        });
+      }
+
+      function setLangButtons(active) {
+        document.querySelectorAll('.header-lang button[data-lang]').forEach(function (b) {
+          var on = b.getAttribute('data-lang') === active;
+          b.classList.toggle('is-active', on);
+        });
+      }
+
+      function initLangSwitchers() {
+        document.querySelectorAll('.header-lang button[data-lang]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var lng = btn.getAttribute('data-lang');
+            if (lng) {
+              try {
+                localStorage.setItem(STORAGE_KEY, lng);
+              } catch (e) {}
+              location.reload();
+            }
+          });
+        });
+      }
+
+      var stored = 'ka';
+      try {
+        stored = localStorage.getItem(STORAGE_KEY) || 'ka';
+      } catch (e) {}
+      if (stored !== 'en' && stored !== 'ru' && stored !== 'ka') stored = 'ka';
+
+      document.documentElement.lang = stored === 'ka' ? 'ka' : stored;
+      setLangButtons(stored);
+      initLangSwitchers();
+
+      fetch('/i18n/' + stored + '.json')
+        .then(function (r) {
+          return r.json();
+        })
+        .then(function (t) {
+          if (t.meta && t.meta.title) document.title = t.meta.title;
+          var md = document.querySelector('meta[name="description"]');
+          if (md && t.meta && t.meta.description) md.setAttribute('content', t.meta.description);
+          applyI18n(t);
+          var hn = document.querySelector('.header-nav');
+          if (hn && t.nav && t.nav.mainAria) hn.setAttribute('aria-label', t.nav.mainAria);
+          var fn = document.querySelector('.site-footer__nav');
+          if (fn && t.nav && t.nav.footerAria) fn.setAttribute('aria-label', t.nav.footerAria);
+          var lg = document.querySelector('.header-lang');
+          if (lg && t.lang && t.lang.switcherAria) lg.setAttribute('aria-label', t.lang.switcherAria);
+          buildFaqList(t);
+          wireAccordion();
+        })
+        .catch(function () {
+          wireAccordion();
+        });
     })();
   </script>
 </body>

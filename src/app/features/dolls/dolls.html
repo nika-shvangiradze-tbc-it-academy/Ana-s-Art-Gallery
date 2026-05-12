@@ -7,44 +7,39 @@
     <div class="dolls__intro-slot">
       <div class="dolls__intro">
         <div class="dolls__intro-content">
-          <p class="dolls__eyebrow">Handmade · Georgian-inspired</p>
-          <h2 id="dolls-title">Ana&apos;s Art Dolls — Georgian Collection</h2>
+          <p class="dolls__eyebrow">{{ 'dolls.eyebrow' | translate }}</p>
+          <h2 id="dolls-title">{{ 'dolls.title' | translate }}</h2>
 
           <div class="dolls__prose">
             <p class="dolls__lead">
-              Each doll is a small, original piece of art — shaped slowly by hand with patience and heart.
-              The collection gathers characters and costumes touched by Georgian craft, folk colour, and a
-              playful sense of story.
+              {{ 'dolls.lead' | translate }}
             </p>
             <p>
-              Inspired by traditions yet open to imagination, these figures carry texture, embroidery, and
-              detail meant to feel personal and alive on the shelf or in the hand.
+              {{ 'dolls.body' | translate }}
             </p>
           </div>
         </div>
 
-        <div class="dolls__custom" role="note" aria-label="Custom orders">
-          <p class="dolls__custom-label">Custom orders</p>
+        <div class="dolls__custom" role="note" [attr.aria-label]="'aria.customOrders' | translate">
+          <p class="dolls__custom-label">{{ 'dolls.customLabel' | translate }}</p>
           <p class="dolls__custom-text">
-            Custom handmade dolls are also available by request. Each doll can be created with different
-            clothing styles, inspired by Georgian traditions or designed according to your personal wishes.
+            {{ 'dolls.customText' | translate }}
           </p>
           <p class="dolls__custom-hint">
-            Traditional dress, contemporary outfits, or a fully bespoke look — share your idea and we can
-            shape a one-of-a-kind companion together.
+            {{ 'dolls.customHint' | translate }}
           </p>
         </div>
       </div>
     </div>
 
-    <div class="dolls__gallery" aria-label="Doll collection">
+    <div class="dolls__gallery" [attr.aria-label]="'aria.dollCollection' | translate">
       <article class="dolls__card" aria-labelledby="doll-card-1-title">
         <div class="dolls__media">
           <picture>
             <source type="image/webp" srcset="/assets/main/dolls/doll-1-thumb.webp" />
             <img
               src="/assets/main/dolls/doll-1.jpg"
-              alt="Handmade Georgian art doll with silver headband, veil, and blue skirt with silver ornament"
+              [attr.alt]="'dolls.doll1.alt' | translate"
               width="560"
               height="700"
               loading="lazy"
@@ -53,14 +48,11 @@
           </picture>
         </div>
         <div class="dolls__body">
-          <h3 class="dolls__card-title" id="doll-card-1-title">Veil &amp; Silver</h3>
+          <h3 class="dolls__card-title" id="doll-card-1-title">{{ 'dolls.doll1.title' | translate }}</h3>
           <p class="dolls__card-desc">
-            A fully handmade doll in traditional Georgian spirit: long braids crowned with a patterned
-            silver band and a soft sheer veil, a tailored black jacket over a long deep-blue skirt. The
-            centre panel and hem are touched with hand-finished silver motifs and a slim belt for an
-            elegant, ceremonial look.
+            {{ 'dolls.doll1.desc' | translate }}
           </p>
-          <button type="button" class="dolls__buy" (click)="openContactModal()">Buy / Contact</button>
+          <button type="button" class="dolls__buy" (click)="openContactModal()">{{ 'dolls.buyContact' | translate }}</button>
         </div>
       </article>
 
@@ -70,7 +62,7 @@
             <source type="image/webp" srcset="/assets/main/dolls/doll-2-thumb.webp" />
             <img
               src="/assets/main/dolls/doll-2.jpg"
-              alt="Handmade Georgian art doll in black, red, and white folk dress with hat and beads"
+              [attr.alt]="'dolls.doll2.alt' | translate"
               width="560"
               height="700"
               loading="lazy"
@@ -79,13 +71,11 @@
           </picture>
         </div>
         <div class="dolls__body">
-          <h3 class="dolls__card-title" id="doll-card-2-title">Crimson &amp; Lace</h3>
+          <h3 class="dolls__card-title" id="doll-card-2-title">{{ 'dolls.doll2.title' | translate }}</h3>
           <p class="dolls__card-desc">
-            Bold black, red, and white balance in this one-of-a-kind piece: a structured folk hat with red
-            accents, a beaded necklace, wide black sleeves trimmed in sparkling red, and a full white skirt
-            — every layer stitched and finished by hand for a proud, festive character.
+            {{ 'dolls.doll2.desc' | translate }}
           </p>
-          <button type="button" class="dolls__buy" (click)="openContactModal()">Buy / Contact</button>
+          <button type="button" class="dolls__buy" (click)="openContactModal()">{{ 'dolls.buyContact' | translate }}</button>
         </div>
       </article>
     </div>

@@ -1,7 +1,7 @@
 <section id="gallery" class="artworks section-elevate" aria-labelledby="artworks-title">
   <div class="section-header">
-    <h2 id="artworks-title">Artworks</h2>
-    <p>Original paintings made with creativity, emotion, and imagination.</p>
+    <h2 id="artworks-title">{{ 'gallery.sectionTitle' | translate }}</h2>
+    <p>{{ 'gallery.sectionSubtitle' | translate }}</p>
   </div>
 
   <div class="art-gallery">
@@ -12,12 +12,12 @@
             type="button"
             class="art-card__thumb"
             (click)="openLightbox(item.index)"
-            [attr.aria-label]="'View enlarged: ' + item.artwork.title"
+            [attr.aria-label]="thumbAria(item.artwork)"
           >
             <app-reveal-image
               [src]="item.artwork.image"
               [webpSrc]="thumbWebp(item.artwork.image)"
-              [alt]="item.artwork.title + ' — original artwork by Ana Kajaia'"
+              [alt]="thumbAlt(item.artwork)"
               [width]="galleryThumbDims.w"
               [height]="galleryThumbDims.h"
               [sizes]="galleryImgSizes"
@@ -27,12 +27,12 @@
             />
           </button>
           <div class="art-card__content">
-            <h3>{{ item.artwork.title }}</h3>
-            <p><strong>Size:</strong> {{ item.artwork.size }}</p>
-            <p><strong>Price:</strong> {{ item.artwork.price }}</p>
-            <p class="artist-comment">{{ item.artwork.comment }}</p>
+            <h3>{{ artworkKey(item.artwork.id, 'title') | translate }}</h3>
+            <p><strong>{{ 'gallery.size' | translate }}:</strong> {{ item.artwork.size }}</p>
+            <p><strong>{{ 'gallery.price' | translate }}:</strong> {{ item.artwork.price }}</p>
+            <p class="artist-comment">{{ artworkKey(item.artwork.id, 'comment') | translate }}</p>
             <button type="button" class="contact-button" (click)="openContactModal()">
-              Buy / Contact
+              {{ 'gallery.buyContact' | translate }}
             </button>
           </div>
         </article>
@@ -40,11 +40,11 @@
     </div>
 
     @if (galleryPagerVisible()) {
-      <nav class="art-gallery__pager" aria-label="Gallery pages">
+      <nav class="art-gallery__pager" [attr.aria-label]="'aria.galleryPages' | translate">
         <button
           type="button"
           class="art-gallery__pager-btn art-gallery__pager-btn--prev"
-          aria-label="Previous page of artworks"
+          [attr.aria-label]="'aria.prevArtworksPage' | translate"
           [disabled]="galleryPage() === 0"
           (click)="galleryPagerPrev()"
         ></button>
@@ -54,7 +54,7 @@
         <button
           type="button"
           class="art-gallery__pager-btn art-gallery__pager-btn--next"
-          aria-label="Next page of artworks"
+          [attr.aria-label]="'aria.nextArtworksPage' | translate"
           [disabled]="galleryPage() >= galleryPageCount() - 1"
           (click)="galleryPagerNext()"
         ></button>
@@ -68,22 +68,22 @@
     class="lightbox"
     role="dialog"
     aria-modal="true"
-    [attr.aria-label]="'Enlarged: ' + art.title"
+    [attr.aria-label]="lightboxAria(art)"
     (click)="closeLightbox()"
   >
     <div class="lightbox__content" (click)="$event.stopPropagation()" role="document">
-      <button type="button" class="lightbox__close" (click)="closeLightbox()" aria-label="Close">×</button>
+      <button type="button" class="lightbox__close" (click)="closeLightbox()" [attr.aria-label]="'aria.close' | translate">×</button>
       @if (artworks.length > 1) {
         <button
           type="button"
           class="lightbox__nav lightbox__nav--prev"
-          aria-label="Previous artwork"
+          [attr.aria-label]="'aria.prevArtwork' | translate"
           (click)="lightboxPrev()"
         ></button>
         <button
           type="button"
           class="lightbox__nav lightbox__nav--next"
-          aria-label="Next artwork"
+          [attr.aria-label]="'aria.nextArtwork' | translate"
           (click)="lightboxNext()"
         ></button>
       }
@@ -92,7 +92,7 @@
           <app-reveal-image
             [src]="art.image"
             [webpSrc]="displayWebp(art.image)"
-            [alt]="art.title + ' — full view for Anart gallery'"
+            [alt]="lightboxAlt(art)"
             [width]="lightboxImgDims.w"
             [height]="lightboxImgDims.h"
             sizes="min(96vw, 1100px)"
@@ -101,7 +101,9 @@
             fit="contain"
           />
         </div>
-        <figcaption class="lightbox__caption">{{ art.title }} · {{ art.size }}</figcaption>
+        <figcaption class="lightbox__caption">
+          {{ artworkKey(art.id, 'title') | translate }}{{ 'gallery.captionSep' | translate }}{{ art.size }}
+        </figcaption>
       </figure>
     </div>
   </div>

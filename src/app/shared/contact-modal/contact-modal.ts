@@ -15,11 +15,12 @@ import {
   CONTACT_PHONE_DISPLAY,
   CONTACT_WHATSAPP_URL,
 } from './contact-detail';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { ContactModalService } from './contact-modal.service';
 
 @Component({
   selector: 'app-contact-modal',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './contact-modal.html',
   styleUrl: './contact-modal.scss',
 })

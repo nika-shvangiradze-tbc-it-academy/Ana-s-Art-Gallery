@@ -7,13 +7,15 @@ import {
   signal,
 } from '@angular/core';
 import { BodyScrollLock } from '../../shared/body-scroll-lock/body-scroll-lock';
+import { I18nService } from '../../core/i18n/i18n.service';
 import { ContactModalService } from '../../shared/contact-modal/contact-modal.service';
 import { RevealImage } from '../../shared/reveal-image/reveal-image';
-import { GALLERY_ARTWORKS } from './gallery-artwork';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { GALLERY_ARTWORKS, type GalleryArtwork } from './gallery-artwork';
 
 @Component({
   selector: 'app-artworks',
-  imports: [RevealImage],
+  imports: [RevealImage, TranslatePipe],
   templateUrl: './artworks.html',
   styleUrl: './artworks.scss',
 })
@@ -58,6 +60,39 @@ export class Artworks {
   /** Lightbox intrinsic hint (optimized WebP capped ~1280w). */
   readonly lightboxImgDims = { w: 1280, h: 960 } as const;
 
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly bodyScrollLock = inject(BodyScrollLock);
+  protected readonly contactModal = inject(ContactModalService);
+  private readonly i18n = inject(I18nService);
+
+  protected artworkKey(id: string, field: 'title' | 'comment'): string {
+    return `gallery.artworks.${id}.${field}`;
+  }
+
+  protected thumbAria(art: GalleryArtwork): string {
+    void this.i18n.langTick();
+    const title = this.i18n.translate(this.artworkKey(art.id, 'title'));
+    return this.i18n.translate('gallery.thumbAria', { title });
+  }
+
+  protected lightboxAria(art: GalleryArtwork): string {
+    void this.i18n.langTick();
+    const title = this.i18n.translate(this.artworkKey(art.id, 'title'));
+    return this.i18n.translate('gallery.lightboxAria', { title });
+  }
+
+  protected thumbAlt(art: GalleryArtwork): string {
+    void this.i18n.langTick();
+    const title = this.i18n.translate(this.artworkKey(art.id, 'title'));
+    return title + this.i18n.translate('gallery.thumbAltSuffix');
+  }
+
+  protected lightboxAlt(art: GalleryArtwork): string {
+    void this.i18n.langTick();
+    const title = this.i18n.translate(this.artworkKey(art.id, 'title'));
+    return title + this.i18n.translate('gallery.lightboxAltSuffix');
+  }
+
   /** Grid: small WebP; falls back to original JPEG if variants missing (e.g. before `optimize-images`). */
   protected thumbWebp(canonicalSrc: string): string {
     return canonicalSrc.replace(/\.(jpe?g)$/i, '-thumb.webp');
@@ -68,10 +103,6 @@ export class Artworks {
     if (/\.webp$/i.test(canonicalSrc)) return canonicalSrc;
     return canonicalSrc.replace(/\.(jpe?g)$/i, '.webp');
   }
-
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly bodyScrollLock = inject(BodyScrollLock);
-  protected readonly contactModal = inject(ContactModalService);
 
   protected openContactModal(): void {
     this.contactModal.open();

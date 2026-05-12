@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { ContactModalService } from '../../shared/contact-modal/contact-modal.service';
 
 @Component({
   selector: 'app-dolls',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './dolls.html',
   styleUrl: './dolls.scss',
 })

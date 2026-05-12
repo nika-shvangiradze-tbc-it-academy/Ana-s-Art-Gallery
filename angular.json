@@ -27,6 +27,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "*.json",
+                "input": "src/locale",
+                "output": "/i18n"
               }
             ],
             "styles": [

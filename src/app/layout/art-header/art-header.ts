@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
+
 @Component({
   selector: 'app-art-header',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './art-header.html',
   styleUrl: './art-header.scss',
 })

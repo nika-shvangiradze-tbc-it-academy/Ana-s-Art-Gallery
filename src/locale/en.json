@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "title": "Anart Gallery — Original Art by Ana Kajaia",
+    "description": "Anart Gallery showcases original paintings by young Georgian artist Ana Kajaia — abstract and figurative art with delivery across Georgia.",
+    "ogTitle": "Anart Gallery — Original Art by Ana Kajaia",
+    "ogDescription": "Explore original paintings from Anart Gallery — creativity, emotion, and personal vision."
+  },
+  "lang": {
+    "geo": "GEO",
+    "eng": "ENG",
+    "rus": "RUS",
+    "switcherAria": "Language"
+  },
+  "brand": {
+    "headerGallery": "Ana's Art Gallery",
+    "hero": "anart",
+    "preloader": "anart"
+  },
+  "nav": {
+    "mainAria": "Main navigation",
+    "primaryAria": "Primary navigation",
+    "footerAria": "Footer links",
+    "artworks": "Artworks",
+    "aboutAna": "About Ana",
+    "donate": "Donate",
+    "contact": "Contact",
+    "home": "Home",
+    "about": "About",
+    "gallery": "Gallery",
+    "faq": "FAQ"
+  },
+  "aria": {
+    "heroSection": "Hero section",
+    "toggleMenu": "Toggle menu",
+    "closeMenu": "Close menu",
+    "galleryPages": "Gallery pages",
+    "prevArtworksPage": "Previous page of artworks",
+    "nextArtworksPage": "Next page of artworks",
+    "prevArtwork": "Previous artwork",
+    "nextArtwork": "Next artwork",
+    "close": "Close",
+    "closeDialog": "Close dialog",
+    "contactOptions": "Contact options",
+    "customOrders": "Custom orders",
+    "dollCollection": "Doll collection"
+  },
+  "hero": {
+    "title": "Anart Gallery",
+    "subtitle": "Original artworks by Ana Kajaia",
+    "cta": "View Artworks",
+    "slideAlt": "Hero showcase {{n}}: abstract painting banner for Anart gallery"
+  },
+  "gallery": {
+    "sectionTitle": "Artworks",
+    "sectionSubtitle": "Original paintings made with creativity, emotion, and imagination.",
+    "size": "Size",
+    "price": "Price",
+    "buyContact": "Buy / Contact",
+    "thumbAria": "View enlarged: {{title}}",
+    "thumbAltSuffix": " — original artwork by Ana Kajaia",
+    "lightboxAria": "Enlarged: {{title}}",
+    "lightboxAltSuffix": " — full view for Anart gallery",
+    "captionSep": " · ",
+    "artworks": {
+      "ballerinas": {
+        "title": "Ballerinas",
+        "comment": "An expressive and atmospheric composition capturing the elegance of dance and the beauty of movement, created with acrylic on canvas."
+      },
+      "girlPearl": {
+        "title": "Girl with a Pearl Earring",
+        "comment": "A timeless portrait study capturing mystery, elegance, and delicate emotion, created with acrylic on canvas. Inspired by the work of Johannes Vermeer."
+      },
+      "martin": {
+        "title": "Martin",
+        "comment": "A minimalist and elegant composition capturing atmosphere, balance, and modern sophistication, created with acrylic on canvas."
+      },
+      "summerMemory": {
+        "title": "Summer Memory",
+        "comment": "A vibrant seascape capturing the energy of ocean waves and the refreshing spirit of summer, created with gouache on paper."
+      },
+      "exoticMorning": {
+        "title": "Exotic Morning",
+        "comment": "A vibrant and expressive composition inspired by the beauty and energy of nature, created with acrylic on canvas."
+      },
+      "snowyEvening": {
+        "title": "Snowy Evening in the City",
+        "comment": "A peaceful winter city scene filled with warmth, reflection, and quiet holiday atmosphere, created with acrylic on canvas."
+      },
+      "peaceVillage": {
+        "title": "Peace of the Village",
+        "comment": "A tranquil countryside landscape filled with natural beauty, warmth, and quiet harmony, created with gouache on paper."
+      },
+      "phoenixLily": {
+        "title": "Phoenix Lily",
+        "comment": "A vibrant floral painting symbolizing rebirth, strength, and warmth, created with acrylic on canvas."
+      },
+      "newYear": {
+        "title": "Preparing for the New Year",
+        "comment": "A cozy winter scene filled with festive warmth and Ana’s personal vision, created with acrylic on canvas."
+      }
+    }
+  },
+  "dolls": {
+    "eyebrow": "Handmade · Georgian-inspired",
+    "title": "Ana's Art Dolls — Georgian Collection",
+    "lead": "Each doll is a small, original piece of art — shaped slowly by hand with patience and heart. The collection gathers characters and costumes touched by Georgian craft, folk colour, and a playful sense of story.",
+    "body": "Inspired by traditions yet open to imagination, these figures carry texture, embroidery, and detail meant to feel personal and alive on the shelf or in the hand.",
+    "customLabel": "Custom orders",
+    "customText": "Custom handmade dolls are also available by request. Each doll can be created with different clothing styles, inspired by Georgian traditions or designed according to your personal wishes.",
+    "customHint": "Traditional dress, contemporary outfits, or a fully bespoke look — share your idea and we can shape a one-of-a-kind companion together.",
+    "buyContact": "Buy / Contact",
+    "doll1": {
+      "title": "Veil & Silver",
+      "desc": "A fully handmade doll in traditional Georgian spirit: long braids crowned with a patterned silver band and a soft sheer veil, a tailored black jacket over a long deep-blue skirt. The centre panel and hem are touched with hand-finished silver motifs and a slim belt for an elegant, ceremonial look.",
+      "alt": "Handmade Georgian art doll with silver headband, veil, and blue skirt with silver ornament"
+    },
+    "doll2": {
+      "title": "Crimson & Lace",
+      "desc": "Bold black, red, and white balance in this one-of-a-kind piece: a structured folk hat with red accents, a beaded necklace, wide black sleeves trimmed in sparkling red, and a full white skirt — every layer stitched and finished by hand for a proud, festive character.",
+      "alt": "Handmade Georgian art doll in black, red, and white folk dress with hat and beads"
+    }
+  },
+  "about": {
+    "title": "About me",
+    "p1": "Ana Kajaia is a fourteen-year-old artist from Kutaisi, Georgia.",
+    "p2": "Ana is a student at Public School No. 31, where the rhythms of everyday school life run quietly alongside a stubborn, unshakeable love for drawing and painting. From an early age, colour, line, and the telling of stories on paper came naturally to her — not as homework, but as a place where she could think out loud and make sense of the world around her.",
+    "p3": "For Ana, creativity is not simply a pastime — it is a way of seeing. Her work brings imagination and feeling together: scenes and characters that carry mood, memory, and the small, easily overlooked details she notices in daily life. She enjoys experimenting with ideas, styles, and atmospheres, building her own voice gradually and deliberately, without rushing to imitate anyone else. Each piece is a step in a longer, patient conversation with herself.",
+    "p4": "What Ana wants most is for her art to feel honest. Her works are not merely pleasing to look at — they are meant to hold something: a sense of wonder, an emotion, a clearly personal way of perceiving the world. It is this vision that she wishes to share with those who value original art — collectors, friends of the arts, and anyone curious about the next generation of painters emerging from Georgia.",
+    "imageAlt": "Portrait of Ana Kajaia"
+  },
+  "donate": {
+    "title": "Support the artist",
+    "text": "If you’d like to help Ana keep creating originals and handcrafted pieces, your support truly matters."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "intro": "Answers about custom pieces, dolls, materials, delivery, and how to collect original work by Georgian artist Ana Kajaia — in the spirit of Anart Gallery.",
+    "items": {
+      "faq-1": {
+        "question": "Can I order a custom artwork based on my own imagination?",
+        "answer": "Yes. Custom artworks can be created based on the customer’s idea, mood, story, or imagination. You can share your vision, and the artwork can be designed in Ana’s artistic style."
+      },
+      "faq-2": {
+        "question": "How long does it take to create a custom artwork?",
+        "answer": "The creation time depends on the size, detail, and complexity of the artwork. Usually, a custom piece may take several days to a few weeks."
+      },
+      "faq-3": {
+        "question": "What materials are used to create the artworks?",
+        "answer": "Ana works with drawing and painting materials such as pencils, colored pencils, watercolor, acrylics, markers, and mixed media, depending on the artwork style."
+      },
+      "faq-4": {
+        "question": "Can handmade dolls be ordered in a custom style?",
+        "answer": "Yes. Handmade dolls can be created with different clothing styles, inspired by Georgian traditions or designed according to the customer’s personal wishes."
+      },
+      "faq-5": {
+        "question": "Is delivery available?",
+        "answer": "Yes. Delivery is available across Georgia. Delivery details, timing, and cost can be discussed before ordering."
+      },
+      "faq-6": {
+        "question": "How can I buy an artwork?",
+        "answer": "You can choose an available artwork from the gallery and contact us through the phone number or email provided on the website."
+      },
+      "faq-7": {
+        "question": "Can I request Georgian traditional style artwork?",
+        "answer": "Yes. Artworks and handmade dolls can be inspired by Georgian culture, traditional clothing, colors, and visual details."
+      },
+      "faq-8": {
+        "question": "Are all artworks original?",
+        "answer": "Yes. Each artwork is original and created with Ana’s personal artistic vision."
+      }
+    }
+  },
+  "footer": {
+    "title": "Contact",
+    "lede": "Questions, commissions, or purchases — reach out and we’ll reply as soon as we can.",
+    "faq": "FAQ",
+    "donate": "Donate me ❤️",
+    "copyright": "© 2026 Ana's Art Gallery. All rights reserved."
+  },
+  "contactModal": {
+    "eyebrow": "Anart Gallery",
+    "title": "Get in touch",
+    "lede": "Interested in this artwork? Contact us to buy or ask a question — we’re happy to help.",
+    "emailLabel": "Email",
+    "phoneWhatsappLabel": "Phone · WhatsApp",
+    "whatsappCta": "Chat on WhatsApp"
+  },
+  "preloader": {
+    "loading": "Loading gallery…"
+  }
+}

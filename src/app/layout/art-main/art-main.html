@@ -1,11 +1,12 @@
 <main>
-  <section id="home" class="hero" aria-label="Hero section">
+  <section id="home" class="hero" [attr.aria-label]="'aria.heroSection' | translate">
     <header class="hero__nav">
-      <a class="hero__brand" href="#home" (click)="closeNav()">anart</a>
+      <a class="hero__brand" href="#home" (click)="closeNav()">{{ 'brand.hero' | translate }}</a>
+
       <button
         type="button"
         class="hero__burger"
-        aria-label="Toggle menu"
+        [attr.aria-label]="'aria.toggleMenu' | translate"
         aria-controls="primary-menu"
         [attr.aria-expanded]="navOpen()"
         (click)="toggleNav()"
@@ -27,24 +28,56 @@
         id="primary-menu"
         class="hero__links"
         [class.hero__links--drawer-open]="navOpen()"
-        aria-label="Primary navigation"
+        [attr.aria-label]="'nav.primaryAria' | translate"
       >
         <div class="hero__drawer-head">
-          <a class="hero__drawer-brand" href="#home" (click)="closeNav()">anart</a>
+          <a class="hero__drawer-brand" href="#home" (click)="closeNav()">{{ 'brand.hero' | translate }}</a>
           <button
             type="button"
             class="hero__drawer-close"
-            aria-label="Close menu"
+            [attr.aria-label]="'aria.closeMenu' | translate"
             (click)="closeNav()"
           >
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <a href="#home" (click)="closeNav()">home</a>
-        <a href="#about" (click)="closeNav()">about</a>
-        <a href="#gallery" (click)="closeNav()">gallery</a>
-        <a href="#faq" (click)="closeNav()">faq</a>
-        <a href="#contact" (click)="openHeroContact($event)">contact</a>
+
+        <div
+          class="hero__lang"
+          role="group"
+          [attr.aria-label]="'lang.switcherAria' | translate"
+        >
+          <button
+            type="button"
+            class="hero__lang-btn"
+            [class.hero__lang-btn--active]="i18n.currentLang() === 'ka'"
+            (click)="setLang('ka')"
+          >
+            {{ 'lang.geo' | translate }}
+          </button>
+          <button
+            type="button"
+            class="hero__lang-btn"
+            [class.hero__lang-btn--active]="i18n.currentLang() === 'en'"
+            (click)="setLang('en')"
+          >
+            {{ 'lang.eng' | translate }}
+          </button>
+          <button
+            type="button"
+            class="hero__lang-btn"
+            [class.hero__lang-btn--active]="i18n.currentLang() === 'ru'"
+            (click)="setLang('ru')"
+          >
+            {{ 'lang.rus' | translate }}
+          </button>
+        </div>
+
+        <a href="#home" (click)="closeNav()">{{ 'nav.home' | translate }}</a>
+        <a href="#about" (click)="closeNav()">{{ 'nav.about' | translate }}</a>
+        <a href="#gallery" (click)="closeNav()">{{ 'nav.gallery' | translate }}</a>
+        <a href="#faq" (click)="closeNav()">{{ 'nav.faq' | translate }}</a>
+        <a href="#contact" (click)="openHeroContact($event)">{{ 'nav.contact' | translate }}</a>
       </nav>
     </header>
 
@@ -57,7 +90,7 @@
           <app-reveal-image
             [src]="slide"
             [webpSrc]="heroLandingWebp(slide)"
-            [alt]="'Hero showcase ' + (idx + 1) + ': abstract painting banner for Anart gallery'"
+            [alt]="'hero.slideAlt' | translate: { n: idx + 1 }"
             [width]="heroImgDims.w"
             [height]="heroImgDims.h"
             [sizes]="heroImgSizes"
@@ -70,9 +103,9 @@
     </div>
 
     <div class="hero__overlay">
-      <h1>Anart Gallery</h1>
-      <p>Original artworks by Ana Kajaia</p>
-      <a href="#gallery" class="cta-button">View Artworks</a>
+      <h1>{{ 'hero.title' | translate }}</h1>
+      <p>{{ 'hero.subtitle' | translate }}</p>
+      <a href="#gallery" class="cta-button">{{ 'hero.cta' | translate }}</a>
     </div>
   </section>
 

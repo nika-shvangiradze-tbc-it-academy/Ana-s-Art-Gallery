@@ -13,19 +13,23 @@ import { ArtFaq } from '../art-faq/art-faq';
 import { ArtFooter } from '../art-footer/art-footer';
 import { Artworks } from '../../features/artworks/artworks';
 import { BodyScrollLock } from '../../shared/body-scroll-lock/body-scroll-lock';
+import { AppLang, I18nService } from '../../core/i18n/i18n.service';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { ContactModalService } from '../../shared/contact-modal/contact-modal.service';
 import { RevealImage } from '../../shared/reveal-image/reveal-image';
 import { Dolls } from '../../features/dolls/dolls';
 
 @Component({
   selector: 'app-art-main',
-  imports: [ArtFooter, RevealImage, Artworks, ArtAbout, Dolls, ArtFaq],
+  imports: [ArtFooter, RevealImage, Artworks, ArtAbout, Dolls, ArtFaq, TranslatePipe],
   templateUrl: './art-main.html',
   styleUrl: './art-main.scss',
 })
 export class ArtMain {
   protected readonly currentSlide = signal(0);
   protected readonly navOpen = signal(false);
+
+  protected readonly i18n = inject(I18nService);
 
   protected readonly heroSlides = [
     '/assets/main/landing/landing-3.jpg',
@@ -50,6 +54,10 @@ export class ArtMain {
     ev.preventDefault();
     this.contactModal.open();
     this.closeNav();
+  }
+
+  protected setLang(lng: AppLang): void {
+    this.i18n.changeLanguage(lng);
   }
 
   constructor() {

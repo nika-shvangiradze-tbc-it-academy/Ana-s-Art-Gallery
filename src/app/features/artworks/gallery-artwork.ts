@@ -1,80 +1,64 @@
 export interface GalleryArtwork {
+  /** Translation key segment under `gallery.artworks.{id}` */
+  id: string;
   image: string;
-  title: string;
   size: string;
   price: string;
-  comment: string;
 }
 
 export const GALLERY_ARTWORKS: GalleryArtwork[] = [
   {
+    id: 'ballerinas',
     image: '/assets/main/ana-gallery/balerina.jpg',
-    title: 'Golden Ballerina',
-    size: '50 x 70 cm',
-    price: '350 GEL',
-    comment: 'A graceful movement captured with warm colors and elegant light.',
+    size: '40 x 40 cm',
+    price: '120 GEL',
   },
   {
-    image: '/assets/main/ana-gallery/ocean-flower.jpg',
-    title: 'Ocean Flower',
-    size: '60 x 80 cm',
-    price: '420 GEL',
-    comment: 'A dreamy composition inspired by sea breeze and blooming life.',
-  },
-  {
+    id: 'girlPearl',
     image: '/assets/main/ana-gallery/woman.jpg',
-    title: 'Quiet Muse',
     size: '40 x 60 cm',
     price: '290 GEL',
-    comment: "A portrait full of emotion, softness, and Ana's personal vision.",
   },
   {
+    id: 'martin',
     image: '/assets/main/ana-gallery/tekila.jpg',
-    title: 'Tekila',
-    size: '40 x 60 cm',
-    price: '290 GEL',
-    comment: "A portrait full of emotion, softness, and Ana's personal vision.",
+    size: '30 x 30 cm',
+    price: '50 GEL',
   },
   {
+    id: 'summerMemory',
     image: '/assets/main/ana-gallery/sea.jpg',
-    title: 'sea',
-    size: '40 x 60 cm',
-    price: '290 GEL',
-    comment: "A portrait full of emotion, softness, and Ana's personal vision.",
+    size: '24 x 32 cm',
+    price: '60 GEL',
   },
   {
+    id: 'exoticMorning',
     image: '/assets/main/ana-gallery/ocean-flower.jpg',
-    title: 'Ocean Flower',
-    size: '40 x 60 cm',
-    price: '290 GEL',
-    comment: "A portrait full of emotion, softness, and Ana's personal vision.",
+    size: '40 x 30 cm',
+    price: '80 GEL',
   },
   {
+    id: 'snowyEvening',
     image: '/assets/main/ana-gallery/merry.jpg',
-    title: 'Quiet Muse',
-    size: '40 x 60 cm',
-    price: '290 GEL',
-    comment: "A portrait full of emotion, softness, and Ana's personal vision.",
+    size: '40 x 30 cm',
+    price: '80 GEL',
   },
   {
+    id: 'peaceVillage',
     image: '/assets/main/ana-gallery/green.jpg',
-    title: 'Quiet Muse',
-    size: '40 x 60 cm',
-    price: '290 GEL',
-    comment: "A portrait full of emotion, softness, and Ana's personal vision.",
+    size: '24 x 32 cm',
+    price: '60 GEL',
   },
   {
+    id: 'phoenixLily',
     image: '/assets/main/ana-gallery/flower.jpg',
-    title: 'Quiet Muse',
-    size: '40 x 60 cm',
-    price: '290 GEL',
-    comment: "A portrait full of emotion, softness, and Ana's personal vision.",
+    size: '30 x 30 cm',
+    price: '50 GEL',
   },
   {
+    id: 'newYear',
     image: '/assets/main/ana-gallery/cat.jpg',
-    title: 'Quiet Muse',
-    size: '40 x 60 cm',
-    price: '290 GEL',
-    comment: "A portrait full of emotion, softness, and Ana's personal vision.",
+    size: '25 x 20 cm',
+    price: '70 GEL',
   },
 ];

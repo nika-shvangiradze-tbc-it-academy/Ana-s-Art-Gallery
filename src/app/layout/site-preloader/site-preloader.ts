@@ -1,8 +1,10 @@
 import { Component, ElementRef, HostBinding, HostListener, inject, input, output } from '@angular/core';
 
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
+
 @Component({
   selector: 'app-site-preloader',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './site-preloader.html',
   styleUrl: './site-preloader.scss',
 })
