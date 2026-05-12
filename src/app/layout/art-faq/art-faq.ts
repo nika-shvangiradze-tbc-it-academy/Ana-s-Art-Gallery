@@ -22,8 +22,6 @@ export class ArtFaq {
     'faq-4',
     'faq-5',
     'faq-6',
-    'faq-7',
-    'faq-8',
   ] as const;
 
   protected faqQuestionKey(id: string): string {

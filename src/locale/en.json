@@ -13,8 +13,8 @@
   },
   "brand": {
     "headerGallery": "Ana's Art Gallery",
-    "hero": "anart",
-    "preloader": "anart"
+    "hero": "Anart",
+    "preloader": "Anart"
   },
   "nav": {
     "mainAria": "Main navigation",
@@ -131,7 +131,7 @@
     }
   },
   "about": {
-    "title": "About me",
+    "title": "Ana Kajaia",
     "p1": "Ana Kajaia is a fourteen-year-old artist from Kutaisi, Georgia.",
     "p2": "Ana is a student at Public School No. 31, where the rhythms of everyday school life run quietly alongside a stubborn, unshakeable love for drawing and painting. From an early age, colour, line, and the telling of stories on paper came naturally to her — not as homework, but as a place where she could think out loud and make sense of the world around her.",
     "p3": "For Ana, creativity is not simply a pastime — it is a way of seeing. Her work brings imagination and feeling together: scenes and characters that carry mood, memory, and the small, easily overlooked details she notices in daily life. She enjoys experimenting with ideas, styles, and atmospheres, building her own voice gradually and deliberately, without rushing to imitate anyone else. Each piece is a step in a longer, patient conversation with herself.",
@@ -169,14 +169,6 @@
       "faq-6": {
         "question": "How can I buy an artwork?",
         "answer": "You can choose an available artwork from the gallery and contact us through the phone number or email provided on the website."
-      },
-      "faq-7": {
-        "question": "Can I request Georgian traditional style artwork?",
-        "answer": "Yes. Artworks and handmade dolls can be inspired by Georgian culture, traditional clothing, colors, and visual details."
-      },
-      "faq-8": {
-        "question": "Are all artworks original?",
-        "answer": "Yes. Each artwork is original and created with Ana’s personal artistic vision."
       }
     }
   },
