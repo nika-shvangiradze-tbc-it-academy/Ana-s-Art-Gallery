@@ -161,7 +161,7 @@ $t-lightbox: 280ms cubic-bezier(0.33, 1, 0.68, 1);
   margin: 0;
   border: none;
   background: transparent;
-  cursor: zoom-in;
+  cursor: pointer;
   line-height: 0;
   aspect-ratio: 4 / 3;
   overflow: hidden;
@@ -226,7 +226,7 @@ $t-lightbox: 280ms cubic-bezier(0.33, 1, 0.68, 1);
   background: rgba(18, 12, 10, 0.78);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  cursor: zoom-out;
+  cursor: default;
   animation: lightboxBackdropIn $t-lightbox ease-out forwards;
 }
 
