@@ -28,7 +28,7 @@
           </button>
           <div class="art-card__content">
             <h3>{{ artworkKey(item.artwork.id, 'title') | translate }}</h3>
-            <p><strong>{{ 'gallery.medium' | translate }}:</strong> {{ artworkKey(item.artwork.id, 'medium') | translate }}</p>
+            <p><strong>{{ 'gallery.technique' | translate }}:</strong> {{ artworkKey(item.artwork.id, 'technique') | translate }}</p>
             <p><strong>{{ 'gallery.size' | translate }}:</strong> {{ item.artwork.size }}</p>
             <p><strong>{{ 'gallery.price' | translate }}:</strong> {{ item.artwork.price }}</p>
             <p class="artist-comment">{{ artworkKey(item.artwork.id, 'comment') | translate }}</p>
@@ -103,7 +103,7 @@
           />
         </div>
         <figcaption class="lightbox__caption">
-          {{ artworkKey(art.id, 'title') | translate }}{{ 'gallery.captionSep' | translate }}{{ artworkKey(art.id, 'medium') | translate }}{{ 'gallery.captionSep' | translate }}{{ art.size }}
+          {{ artworkKey(art.id, 'title') | translate }}{{ 'gallery.captionSep' | translate }}{{ artworkKey(art.id, 'technique') | translate }}{{ 'gallery.captionSep' | translate }}{{ art.size }}
         </figcaption>
       </figure>
     </div>

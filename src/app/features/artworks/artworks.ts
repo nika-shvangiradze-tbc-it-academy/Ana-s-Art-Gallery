@@ -71,7 +71,7 @@ export class Artworks {
   private readonly injector = inject(Injector);
   private readonly platformId = inject(PLATFORM_ID);
 
-  protected artworkKey(id: string, field: 'title' | 'comment' | 'medium'): string {
+  protected artworkKey(id: string, field: 'title' | 'comment' | 'technique'): string {
     return `gallery.artworks.${id}.${field}`;
   }
 

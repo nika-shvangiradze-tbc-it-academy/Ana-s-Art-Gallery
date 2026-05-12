@@ -25,7 +25,7 @@
     "donate": "Donate",
     "contact": "Contact",
     "home": "Home",
-    "about": "About",
+    "about": "About me",
     "gallery": "Gallery",
     "faq": "FAQ"
   },
@@ -46,7 +46,7 @@
   },
   "hero": {
     "title": "Anart Gallery",
-    "subtitle": "Original artworks by Ana Kajaia",
+    "subtitle": "Ana Kajaia's original artworks",
     "cta": "View Artworks",
     "slideAlt": "Hero showcase {{n}}: abstract painting banner for Anart gallery"
   },
@@ -54,7 +54,7 @@
     "sectionTitle": "Artworks",
     "sectionSubtitle": "Original paintings made with creativity, emotion, and imagination.",
     "size": "Size",
-    "medium": "Medium",
+    "technique": "Technique",
     "price": "Price",
     "buyContact": "Buy / Contact",
     "thumbAria": "View enlarged: {{title}}",
@@ -65,47 +65,47 @@
     "artworks": {
       "ballerinas": {
         "title": "Ballerinas",
-        "medium": "Canvas / acrylic",
+        "technique": "Canvas / acrylic",
         "comment": "An expressive and atmospheric composition capturing the elegance of dance and the beauty of movement."
       },
       "girlPearl": {
         "title": "Girl with a Pearl Earring",
-        "medium": "Canvas / acrylic",
+        "technique": "Canvas / acrylic",
         "comment": "A timeless portrait study capturing mystery, elegance, and delicate emotion. Inspired by the work of Johannes Vermeer."
       },
       "martin": {
         "title": "Martin",
-        "medium": "Canvas / acrylic",
+        "technique": "Canvas / acrylic",
         "comment": "A minimalist and elegant composition capturing atmosphere, balance, and modern sophistication."
       },
       "summerMemory": {
         "title": "Summer Memory",
-        "medium": "Paper / gouache",
+        "technique": "Paper / gouache",
         "comment": "A vibrant seascape capturing the energy of ocean waves and the refreshing spirit of summer."
       },
       "exoticMorning": {
         "title": "Exotic Morning",
-        "medium": "Canvas / acrylic",
+        "technique": "Canvas / acrylic",
         "comment": "A vibrant and expressive composition inspired by the beauty and energy of nature."
       },
       "snowyEvening": {
         "title": "Snowy Evening in the City",
-        "medium": "Canvas / acrylic",
+        "technique": "Canvas / acrylic",
         "comment": "A peaceful winter city scene filled with warmth, reflection, and quiet holiday atmosphere."
       },
       "peaceVillage": {
         "title": "Peace of the Village",
-        "medium": "Paper / gouache",
+        "technique": "Paper / gouache",
         "comment": "A tranquil countryside landscape filled with natural beauty, warmth, and quiet harmony."
       },
       "phoenixLily": {
         "title": "Phoenix Lily",
-        "medium": "Canvas / acrylic",
+        "technique": "Canvas / acrylic",
         "comment": "A vibrant floral painting symbolizing rebirth, strength, and warmth."
       },
       "newYear": {
         "title": "Preparing for the New Year",
-        "medium": "Canvas / acrylic",
+        "technique": "Canvas / acrylic",
         "comment": "A cozy winter scene filled with festive warmth and Ana’s personal vision."
       }
     }
