@@ -1,11 +1,15 @@
 import {
   Component,
   HostListener,
+  Injector,
+  PLATFORM_ID,
+  afterNextRender,
   computed,
   inject,
   DestroyRef,
   signal,
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { BodyScrollLock } from '../../shared/body-scroll-lock/body-scroll-lock';
 import { I18nService } from '../../core/i18n/i18n.service';
 import { ContactModalService } from '../../shared/contact-modal/contact-modal.service';
@@ -64,8 +68,10 @@ export class Artworks {
   private readonly bodyScrollLock = inject(BodyScrollLock);
   protected readonly contactModal = inject(ContactModalService);
   private readonly i18n = inject(I18nService);
+  private readonly injector = inject(Injector);
+  private readonly platformId = inject(PLATFORM_ID);
 
-  protected artworkKey(id: string, field: 'title' | 'comment'): string {
+  protected artworkKey(id: string, field: 'title' | 'comment' | 'medium'): string {
     return `gallery.artworks.${id}.${field}`;
   }
 
@@ -116,13 +122,50 @@ export class Artworks {
     });
   }
 
-  protected galleryPagerNext(): void {
+  protected galleryPagerNext(ev: MouseEvent): void {
+    this.blurIfPagerButton(ev);
     const last = this.galleryPageCount() - 1;
-    this.galleryPage.update((p) => Math.min(last, p + 1));
+    this.scrollGalleryTopIntoViewAfter(() => {
+      this.galleryPage.update((p) => Math.min(last, p + 1));
+    });
   }
 
-  protected galleryPagerPrev(): void {
-    this.galleryPage.update((p) => Math.max(0, p - 1));
+  protected galleryPagerPrev(ev: MouseEvent): void {
+    this.blurIfPagerButton(ev);
+    this.scrollGalleryTopIntoViewAfter(() => {
+      this.galleryPage.update((p) => Math.max(0, p - 1));
+    });
+  }
+
+  /** Avoid focus on a control that becomes `disabled` (can move the viewport). */
+  private blurIfPagerButton(ev: MouseEvent): void {
+    const el = ev.currentTarget;
+    if (el instanceof HTMLElement) {
+      el.blur();
+    }
+  }
+
+  /**
+   * After swapping pages, align the gallery section to the top of the viewport
+   * so thumbnails stay visible (short last pages + preserved scrollY hid images above).
+   */
+  private scrollGalleryTopIntoViewAfter(mutate: () => void): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      mutate();
+      return;
+    }
+    mutate();
+    afterNextRender(
+      () => {
+        const el = document.getElementById('gallery');
+        if (!el) return;
+        el.scrollIntoView({ block: 'start', behavior: 'auto' });
+        requestAnimationFrame(() => {
+          el.scrollIntoView({ block: 'start', behavior: 'auto' });
+        });
+      },
+      { injector: this.injector },
+    );
   }
 
   protected openLightbox(index: number): void {

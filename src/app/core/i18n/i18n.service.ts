@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Injectable, NgZone, PLATFORM_ID, inject, signal } from '@angular/core';
+import { ApplicationRef, Injectable, NgZone, PLATFORM_ID, inject, signal } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import i18next from 'i18next';
 
@@ -17,6 +17,7 @@ export class I18nService {
   private readonly meta = inject(Meta);
   private readonly zone = inject(NgZone);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly appRef = inject(ApplicationRef);
 
   /** Incremented when UI strings must refresh (translations / language). */
   readonly langTick = signal(0);
@@ -29,15 +30,9 @@ export class I18nService {
   constructor() {
     const lng = this.resolveInitialLang();
 
-    i18next.on('languageChanged', (next) => {
+    i18next.on('languageChanged', () => {
       this.zone.run(() => {
-        if (isPlatformBrowser(this.platformId)) {
-          localStorage.setItem(LANG_STORAGE_KEY, next);
-        }
-        this.currentLang.set(next as AppLang);
-        this.langTick.update((n) => n + 1);
-        this.applyDocumentLang(next);
-        this.applyMetaTags();
+        this.syncUiFromI18next();
       });
     });
 
@@ -50,16 +45,12 @@ export class I18nService {
         },
         lng,
         fallbackLng: 'ka',
+        supportedLngs: ['ka', 'en', 'ru'],
+        nonExplicitSupportedLngs: true,
+        load: 'languageOnly',
         interpolation: { escapeValue: false },
       })
-      .then(() => {
-        this.zone.run(() => {
-          this.currentLang.set(i18next.language as AppLang);
-          this.langTick.update((n) => n + 1);
-          this.applyDocumentLang(i18next.language);
-          this.applyMetaTags();
-        });
-      });
+      .then(() => undefined);
   }
 
   changeLanguage(lng: AppLang): void {
@@ -70,13 +61,32 @@ export class I18nService {
     return i18next.t(key, options ?? {});
   }
 
+  /** Map i18next / browser codes (e.g. ru-RU) to bundled app languages. */
+  private normalizeAppLang(lng: string): AppLang {
+    const base = String(lng).split(/[-_]/)[0]?.toLowerCase() ?? 'ka';
+    if (base === 'en' || base === 'ru') return base;
+    return 'ka';
+  }
+
+  private syncUiFromI18next(): void {
+    const resolved = this.normalizeAppLang(i18next.language);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem(LANG_STORAGE_KEY, resolved);
+    }
+    this.currentLang.set(resolved);
+    this.langTick.update((n) => n + 1);
+    this.applyDocumentLang(resolved);
+    this.applyMetaTags();
+    this.appRef.tick();
+  }
+
   private resolveInitialLang(): AppLang {
     if (!isPlatformBrowser(this.platformId)) {
       return 'ka';
     }
     const stored = localStorage.getItem(LANG_STORAGE_KEY);
-    if (stored === 'en' || stored === 'ru' || stored === 'ka') {
-      return stored;
+    if (stored) {
+      return this.normalizeAppLang(stored);
     }
     return 'ka';
   }

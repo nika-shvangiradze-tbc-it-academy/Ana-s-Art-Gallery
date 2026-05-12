@@ -28,6 +28,7 @@
           </button>
           <div class="art-card__content">
             <h3>{{ artworkKey(item.artwork.id, 'title') | translate }}</h3>
+            <p><strong>{{ 'gallery.medium' | translate }}:</strong> {{ artworkKey(item.artwork.id, 'medium') | translate }}</p>
             <p><strong>{{ 'gallery.size' | translate }}:</strong> {{ item.artwork.size }}</p>
             <p><strong>{{ 'gallery.price' | translate }}:</strong> {{ item.artwork.price }}</p>
             <p class="artist-comment">{{ artworkKey(item.artwork.id, 'comment') | translate }}</p>
@@ -46,7 +47,7 @@
           class="art-gallery__pager-btn art-gallery__pager-btn--prev"
           [attr.aria-label]="'aria.prevArtworksPage' | translate"
           [disabled]="galleryPage() === 0"
-          (click)="galleryPagerPrev()"
+          (click)="galleryPagerPrev($event)"
         ></button>
         <span class="art-gallery__pager-info" aria-live="polite">
           {{ galleryPage() + 1 }} / {{ galleryPageCount() }}
@@ -56,7 +57,7 @@
           class="art-gallery__pager-btn art-gallery__pager-btn--next"
           [attr.aria-label]="'aria.nextArtworksPage' | translate"
           [disabled]="galleryPage() >= galleryPageCount() - 1"
-          (click)="galleryPagerNext()"
+          (click)="galleryPagerNext($event)"
         ></button>
       </nav>
     }
@@ -102,7 +103,7 @@
           />
         </div>
         <figcaption class="lightbox__caption">
-          {{ artworkKey(art.id, 'title') | translate }}{{ 'gallery.captionSep' | translate }}{{ art.size }}
+          {{ artworkKey(art.id, 'title') | translate }}{{ 'gallery.captionSep' | translate }}{{ artworkKey(art.id, 'medium') | translate }}{{ 'gallery.captionSep' | translate }}{{ art.size }}
         </figcaption>
       </figure>
     </div>

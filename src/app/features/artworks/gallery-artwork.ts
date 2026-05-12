@@ -16,8 +16,8 @@ export const GALLERY_ARTWORKS: GalleryArtwork[] = [
   {
     id: 'girlPearl',
     image: '/assets/main/ana-gallery/woman.jpg',
-    size: '40 x 60 cm',
-    price: '290 GEL',
+    size: '25 x 30 cm',
+    price: '80 GEL',
   },
   {
     id: 'martin',
