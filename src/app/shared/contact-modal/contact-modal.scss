@@ -202,6 +202,11 @@ $row-border: #ede6e0;
   gap: 0.75rem;
 }
 
+.contact-modal__channel {
+  position: relative;
+  margin: 0;
+}
+
 .contact-row {
   display: flex;
   align-items: center;
@@ -214,6 +219,7 @@ $row-border: #ede6e0;
   text-decoration: none;
   text-align: left;
   color: inherit;
+  cursor: pointer;
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
@@ -221,16 +227,82 @@ $row-border: #ede6e0;
     transform 0.22s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.contact-row:hover {
+.contact-row--with-copy {
+  gap: 0.45rem;
+  padding-inline-end: clamp(0.55rem, 2vw, 0.75rem);
+}
+
+.contact-row__tap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: -4px;
+  padding: 4px;
+}
+
+.contact-row__tap:focus-visible {
+  outline: 2px solid rgba(113, 224, 69, 0.5);
+  outline-offset: 2px;
+}
+
+.contact-row__copy {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(233, 224, 218, 0.95);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 252, 250, 0.98);
+  color: #4a3f3a;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.contact-row__copy:hover {
+  background: #fff8f4;
+  border-color: #ddd2cb;
+  color: #2a211e;
+}
+
+.contact-row__copy:focus-visible {
+  outline: 2px solid rgba(113, 224, 69, 0.55);
+  outline-offset: 2px;
+}
+
+.contact-row__copy:active {
+  transform: scale(0.96);
+}
+
+.contact-row__flash {
+  margin: 0.4rem 0 0;
+  padding: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #4d7057;
+}
+
+.contact-row:hover,
+.contact-row--with-copy:hover {
   background: #fffcfb;
   border-color: #e2d8d2;
   box-shadow: 0 6px 20px rgba(47, 35, 31, 0.07);
   transform: translateY(-1px);
-}
-
-.contact-row:focus-visible {
-  outline: 2px solid rgba(113, 224, 69, 0.5);
-  outline-offset: 2px;
 }
 
 .contact-row__icon {
@@ -326,13 +398,16 @@ $row-border: #ede6e0;
 @media (prefers-reduced-motion: reduce) {
   .contact-modal__close,
   .contact-modal__whatsapp,
-  .contact-row {
+  .contact-row,
+  .contact-row__copy {
     transition: none;
   }
 
   .contact-modal__close:hover,
   .contact-modal__whatsapp:hover,
-  .contact-row:hover {
+  .contact-row:hover,
+  .contact-row--with-copy:hover,
+  .contact-row__copy:active {
     transform: none;
   }
 }

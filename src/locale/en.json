@@ -42,7 +42,9 @@
     "closeDialog": "Close dialog",
     "contactOptions": "Contact options",
     "customOrders": "Custom orders",
-    "dollCollection": "Doll collection"
+    "dollCollection": "Doll collection",
+    "copyEmail": "Copy email address",
+    "copyPhone": "Copy phone number"
   },
   "hero": {
     "title": "Anart Gallery",
@@ -185,7 +187,9 @@
     "lede": "Interested in this artwork? Contact us to buy or ask a question — we’re happy to help.",
     "emailLabel": "Email",
     "phoneWhatsappLabel": "Phone · WhatsApp",
-    "whatsappCta": "Chat on WhatsApp"
+    "whatsappCta": "Chat on WhatsApp",
+    "copy": "Copy",
+    "copied": "Copied"
   },
   "preloader": {
     "loading": "Loading gallery…"

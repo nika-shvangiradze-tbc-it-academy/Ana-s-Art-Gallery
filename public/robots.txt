@@ -1,0 +1,5 @@
+# https://anartgallery.ge — allow indexing; point crawlers at the sitemap.
+User-agent: *
+Allow: /
+
+Sitemap: https://anartgallery.ge/sitemap.xml

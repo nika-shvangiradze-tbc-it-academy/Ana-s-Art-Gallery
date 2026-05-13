@@ -42,7 +42,9 @@
     "closeDialog": "დიალოგის დახურვა",
     "contactOptions": "კონტაქტის ვარიანტები",
     "customOrders": "ინდივიდუალური შეკვეთა",
-    "dollCollection": "თოჯინების კოლექცია"
+    "dollCollection": "თოჯინების კოლექცია",
+    "copyEmail": "ელფოსტის მისამართის კოპირება",
+    "copyPhone": "ტელეფონის ნომრის კოპირება"
   },
   "hero": {
     "title": "Anart გალერეა",
@@ -185,7 +187,9 @@
     "lede": "დაინტერესებული ხართ ამ ნამუშევრით? დაგვიკავშირდით შესაძენად ან კითხვისთვის — გვიხარია დახმარება.",
     "emailLabel": "ელფოსტა",
     "phoneWhatsappLabel": "ტელეფონი · WhatsApp",
-    "whatsappCta": "საუბარი WhatsApp-ში"
+    "whatsappCta": "საუბარი WhatsApp-ში",
+    "copy": "კოპირება",
+    "copied": "დაკოპირებულია"
   },
   "preloader": {
     "loading": "იტვირთება გალერეა…"
